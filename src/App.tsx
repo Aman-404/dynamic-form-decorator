@@ -5,7 +5,7 @@ import { MyFormDTO } from './dto/MyFormDTO';
 const App: React.FC = () => {
   return (
     <div>
-      <h1>Dynamic Form with Decorators</h1>
+      <h1 style={{textAlign:'center'}}>Dynamic Form with Decorators</h1>
       <DynamicForm dtoClass={MyFormDTO} />
     </div>
   );
