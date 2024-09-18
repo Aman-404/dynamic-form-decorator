@@ -14,3 +14,27 @@ export function FormField(label: string, type: 'text' | 'number' | 'checkbox' | 
     });
   };
 }
+
+
+export function Required() {
+  return function (target: any, propertyKey: string | symbol) {
+    if (!target.constructor.requiredFields) {
+      target.constructor.requiredFields = [];
+    }
+
+    target.constructor.requiredFields.push(propertyKey);
+  };
+}
+
+
+// export function Validate(validatorFn: (value: any) => string | null) {
+//   return function (target: any, propertyKey: string | symbol) {
+//     if (!target.constructor.validators) {
+//       target.constructor.validators = {};
+//     }
+
+//     // Store the validator function for this specific field
+//     target.constructor.validators[propertyKey] = validatorFn;
+//   };
+// }
+

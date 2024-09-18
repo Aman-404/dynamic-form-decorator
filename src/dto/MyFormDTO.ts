@@ -1,17 +1,21 @@
-import { FormField } from '../decorators/formDecorators';
+
+import { FormField, Required } from '../decorators/formDecorators';
 
 export class MyFormDTO {
   @FormField('First Name', 'text')
+  @Required()
   firstName: string = '';
 
-  
-  @FormField('last Name', 'text')
+  @FormField('Last Name','text')
+  @Required()
   lastName: string = '';
 
   @FormField('Age', 'number')
+  @Required()
   age: number = 0;
 
-  @FormField('Subscribe to newsletter', 'checkbox')
+  @FormField('I accept terms and conditions', 'checkbox')
+  @Required()
   subscribe: boolean = false;
 
   @FormField('Submit', 'button')
