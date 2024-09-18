@@ -2,22 +2,30 @@
 import { FormField, Required } from '../decorators/formDecorators';
 
 export class MyFormDTO {
-  @FormField('First Name', 'text')
+  @FormField('Name', 'text')
   @Required()
-  firstName: string = '';
-
-  @FormField('Last Name','text')
-  @Required()
-  lastName: string = '';
+  name!: string;
 
   @FormField('Age', 'number')
   @Required()
-  age: number = 0;
+  age!: number;
 
-  @FormField('I accept terms and conditions', 'checkbox')
+  @FormField('Comments', 'textarea')
+  comments!: string;
+
+  @FormField('Agree to Terms', 'checkbox')
   @Required()
-  subscribe: boolean = false;
+  agree!: boolean;
 
-  @FormField('Submit', 'button')
-  submit: boolean = false;
+  @FormField('Gender', 'dropdown', ['Male', 'Female', 'Other'])
+  @Required()
+  gender!: string;
+
+  @FormField('Appointment', 'date-time')
+  // @Required()
+  appointment!: string;
+
+  @FormField('Description', 'rtf')
+  description!: string;
 }
+
