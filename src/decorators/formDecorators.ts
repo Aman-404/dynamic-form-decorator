@@ -1,21 +1,14 @@
-type FieldType = 'text' | 'number' | 'checkbox' | 'button' | 'textarea' | 'dropdown' | 'select' | 'rtf' | 'grid' | 'date-time';
 
-export function FormField(label: string, type: FieldType, options?: string[]) {
+import { FieldDTO } from '../dto/fieldDTO';
+
+export function FormField(field: FieldDTO) {
   return function (target: any, propertyKey: string | symbol): void {
     if (!target.constructor.formFields) {
       target.constructor.formFields = [];
     }
-
-    target.constructor.formFields.push({
-      name: propertyKey,
-      label,
-      type,
-      options, // Options for dropdowns or select boxes
-    });
+    target.constructor.formFields.push(field);
   };
 }
-
-
 
 export function Required() {
   return function (target: any, propertyKey: string | symbol) {
@@ -27,15 +20,4 @@ export function Required() {
   };
 }
 
-
-// export function Validate(validatorFn: (value: any) => string | null) {
-//   return function (target: any, propertyKey: string | symbol) {
-//     if (!target.constructor.validators) {
-//       target.constructor.validators = {};
-//     }
-
-//     // Store the validator function for this specific field
-//     target.constructor.validators[propertyKey] = validatorFn;
-//   };
-// }
 

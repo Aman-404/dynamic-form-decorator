@@ -1,12 +1,13 @@
 import React from 'react';
 import DynamicForm from './components/DynamicForm/DynamicForm';
-import { MyFormDTO } from './dto/MyFormDTO';
+import { LoginFormDTO } from './dto/LoginFormDTO';
+import { SignupFormDTO } from './dto/SignupFormDTO';
 
 const App: React.FC = () => {
   return (
     <div>
-      <h1 style={{textAlign:'center'}}>Dynamic Form with Decorators</h1>
-      <DynamicForm dtoClass={MyFormDTO} />
+      <DynamicForm formFields={LoginFormDTO.formFields} moduleName={'Login Form'} />
+      <DynamicForm formFields={SignupFormDTO.formFields} moduleName={'User Management'} />
     </div>
   );
 };
